@@ -10,11 +10,39 @@
       background: #0f172a;
       color: #fff;
       margin: 0;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: #020617;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    header button {
+      background: #1e293b;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    header button.active {
+      background: #3b82f6;
+    }
+
+    main {
       padding: 20px;
     }
 
-    h1 { margin-bottom: 10px; }
-    h2 { margin-top: 40px; }
+    h2 { margin-top: 20px; }
 
     .grid {
       display: grid;
@@ -59,72 +87,73 @@
       object-fit: cover;
       pointer-events: none;
     }
+
+    .hidden { display: none; }
   </style>
 </head>
 <body>
 
-<h1>Treino ABC</h1>
+<header>
+  <button onclick="trocar('a')" id="btn-a">Treino A</button>
+  <button onclick="trocar('b')" id="btn-b">Treino B</button>
+  <button onclick="trocar('c')" id="btn-c">Treino C</button>
+</header>
 
+<main>
+
+<div id="treino-a">
 <h2>🔴 Treino A - Superiores</h2>
 <div class="grid">
-
-  <div class="card"><div class="card-header"><div class="title">Supino (máquina ou barra)</div><div class="top-row"><span>3x10–12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/1a.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Supino inclinado com halter</div><div class="top-row"><span>3x10–12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/2a.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Crucifixo (máquina ou cabo)</div><div class="top-row"><span>3x12–15</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/3a.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Desenvolvimento com halteres</div><div class="top-row"><span>3x10–12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/4a.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Elevação lateral</div><div class="top-row"><span>3x12–15</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/5a.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Tríceps corda</div><div class="top-row"><span>3x12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/6a.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Tríceps banco/máquina</div><div class="top-row"><span>3x12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/7a.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Prancha</div><div class="top-row"><span>3x30–45s</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/8a.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Abdominal (máquina ou infra)</div><div class="top-row"><span>3x15</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/9a.mp4" type="video/mp4"></video></div>
-
+  <div class="card"><div class="card-header"><div class="title">Supino</div><div class="top-row"><span>3x10–12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/1a.mp4"></video></div>
+  <div class="card"><div class="card-header"><div class="title">Supino inclinado</div><div class="top-row"><span>3x10–12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/2a.mp4"></video></div>
+  <div class="card"><div class="card-header"><div class="title">Crucifixo</div><div class="top-row"><span>3x12–15</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/3a.mp4"></video></div>
+    <div class="card"><div class="card-header"><div class="title">Desenvolvimento com halteres</div><div class="top-row"><span>3x10–12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/4a.mp4" type="video/mp4"></video></div>
+    <div class="card"><div class="card-header"><div class="title">Elevação lateral</div><div class="top-row"><span>3x12–15</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/5a.mp4" type="video/mp4"></video></div>
+    <div class="card"><div class="card-header"><div class="title">Tríceps corda</div><div class="top-row"><span>3x12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/6a.mp4" type="video/mp4"></video></div>
+    <div class="card"><div class="card-header"><div class="title">Tríceps banco/máquina</div><div class="top-row"><span>3x12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/7a.mp4" type="video/mp4"></video></div>
+    <div class="card"><div class="card-header"><div class="title">Prancha</div><div class="top-row"><span>3x30–45s</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/8a.mp4" type="video/mp4"></video></div>
+    <div class="card"><div class="card-header"><div class="title">Abdominal (máquina ou infra)</div><div class="top-row"><span>3x15</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/9a.mp4" type="video/mp4"></video></div>
+</div>
 </div>
 
+<div id="treino-b" class="hidden">
 <h2>🔵 Treino B - Costas e Bíceps</h2>
 <div class="grid">
-
-  <div class="card"><div class="card-header"><div class="title">Puxada na frente (pulley)</div><div class="top-row"><span>3x10–12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/pulldown.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Remada baixa</div><div class="top-row"><span>3x10–12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/remada.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Remada unilateral com halter</div><div class="top-row"><span>3x12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/remada-unilateral.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Face pull</div><div class="top-row"><span>3x12–15</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/facepull.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Rosca direta</div><div class="top-row"><span>3x10–12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/rosca-direta.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Rosca alternada</div><div class="top-row"><span>3x12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/rosca-alternada.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Rosca martelo</div><div class="top-row"><span>3x12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/rosca-martelo.mp4" type="video/mp4"></video></div>
-
+  <div class="card"><div class="card-header"><div class="title">Puxada</div><div class="top-row"><span>3x10–12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/4-A.mp4"></video></div>
+</div>
 </div>
 
+<div id="treino-c" class="hidden">
 <h2>🟢 Treino C - Pernas e Core</h2>
 <div class="grid">
-
-  <div class="card"><div class="card-header"><div class="title">Leg press</div><div class="top-row"><span>4x10–12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/legpress.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Agachamento (smith ou livre)</div><div class="top-row"><span>3x8–12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/agachamento.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Cadeira extensora</div><div class="top-row"><span>3x12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/extensora.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Mesa flexora</div><div class="top-row"><span>3x12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/flexora.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Panturrilha no leg</div><div class="top-row"><span>4x15</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/panturrilha.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Prancha</div><div class="top-row"><span>3x30–45s</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/prancha.mp4" type="video/mp4"></video></div>
-
-  <div class="card"><div class="card-header"><div class="title">Abdominal (máquina ou infra)</div><div class="top-row"><span>3x15</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/abdominal.mp4" type="video/mp4"></video></div>
-
+  <div class="card"><div class="card-header"><div class="title">Leg Press</div><div class="top-row"><span>4x10–12</span><input type="checkbox" class="checkbox"></div></div><video autoplay loop muted playsinline><source src="videos/5-A.mp4"></video></div>
 </div>
+</div>
+
+</main>
+
+<script>
+function trocar(t) {
+  document.getElementById('treino-a').classList.add('hidden');
+  document.getElementById('treino-b').classList.add('hidden');
+  document.getElementById('treino-c').classList.add('hidden');
+
+  document.getElementById('treino-' + t).classList.remove('hidden');
+
+  document.getElementById('btn-a').classList.remove('active');
+  document.getElementById('btn-b').classList.remove('active');
+  document.getElementById('btn-c').classList.remove('active');
+
+  document.getElementById('btn-' + t).classList.add('active');
+
+  localStorage.setItem('treinoAtivo', t);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// carregar treino salvo
+const salvo = localStorage.getItem('treinoAtivo') || 'a';
+trocar(salvo);
+</script>
 
 </body>
 </html>
